@@ -55,11 +55,16 @@ class Dice {
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
+
+  between(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
 }
 
 class Player {
 
-  constructor(energy, fightforce, lifepoints) {
+  constructor(energy, fightforce, lifepoints, skin) {
+    this.skin = skin;
     this.lifepoints = lifepoints;
     this.fightforce = fightforce;
     this.energy = energy;
@@ -71,7 +76,7 @@ class Player {
   }
 
   getCondition(){
-    return "F: "+this.fightforce + "  E: " + this.energy.toFixed(2) + "  L: " + this.lifepoints;
+    return this.fightforce + "  <i class='force'></i> " + this.energy.toFixed(2) + "  <i class='energy'></i> " + this.lifepoints + "  <i class='heart'></i>";
   }
 }
 
@@ -95,20 +100,47 @@ class Battlefield {
 class Model {
 
   constructor() {
+    this.dice = new Dice();
     this.round = 0;
     this.heros = [];
-    this.heros.push(new Player(1, 5, 3)); //TEMP
-    this.heros.push(new Player(1, 7, 2)); //TEMP
-    this.heros.push(new Player(1, 9, 3)); //TEMP
-    this.heros.push(new Player(1, 7, 7)); //TEMP
+    this.heros.push(new Player(1, 5, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Player(1, 7, 2, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Player(1, 9, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Player(1, 7, 7, this.generateSkin(false, this.dice))); //TEMP
 
     this.monsters = [];
-    this.monsters.push(new Player(1, 8, 2)); //TEMP
-    this.monsters.push(new Player(1, 4, 9)); //TEMP
+    this.monsters.push(new Player(1, 8, 2, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(1, 4, 9, this.generateSkin(true, this.dice))); //TEMP
     this.battlefield = new Battlefield();
     this.monsterIndex = 0;
     this.heroIndex = 0;
-    this.dice = new Dice();
+  }
+
+  generateSkin(isMonster, dice) {
+    if (!isMonster) {
+      switch (dice.between(1, 3)) {
+        case 1:
+          return "hero";
+        case 2:
+          return "hero2";
+      }
+    } else {
+      switch (dice.between(1, 7)) {
+        case 1:
+          return "monster";
+        case 2:
+          return "monster2";
+        case 3:
+          return "monster3";
+        case 4:
+          return "monster4";
+        case 5:
+          return "monster5";
+        case 6:
+          return "monster6";
+      }
+
+    }
   }
 
   setHero(heroIndex){
@@ -126,7 +158,7 @@ class Model {
   getHerosCondition(){
     let ergebnis = "";
     for(let i = 0; i < this.heros.length; i++){
-      ergebnis = ergebnis + i + " # " + this.heros[i].getCondition() + "<br>";
+      ergebnis = ergebnis + i + " <i class='" + this.heros[i].skin + "'></i> Stats: " + this.heros[i].getCondition() + "<br>";
     }
     return ergebnis;
   }
@@ -134,7 +166,7 @@ class Model {
   getMonstersCondition(){
     let ergebnis = "";
     for(let i = 0; i < this.monsters.length; i++){
-      ergebnis = ergebnis + i + " # " + this.monsters[i].getCondition() + "<br>";
+      ergebnis = ergebnis + i + " <i class='" + this.monsters[i].skin + "'></i> Stats: " + this.monsters[i].getCondition() + "<br>";
     }
     return ergebnis;
   }

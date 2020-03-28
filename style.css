@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   font: 16px sans-serif;
+  line-height: 2;
 }
 html {
   color: #fff;
@@ -46,4 +47,51 @@ canvas {
   color: white;
   padding: 15px 32px;
   background: url(./images/dark_oak_planks.png);
+}
+i.heart, i.energy, i.force {
+  display: inline-block;
+  vertical-align: middle;
+  height: 24px;
+  width: 24px;
+  background-size: cover;
+}
+i.heart {
+  background-image: url(./images/heart.png);
+}
+i.energy {
+  background-image: url(./images/energy.png);
+}
+i.force {
+  background-image: url(./images/iron_sword.png);
+}
+i.hero, i.hero2, i.monster, i.monster2, i.monster3, i.monster4, i.monster5, i.monster6 {
+    display: inline-block;
+    vertical-align: text-top;
+    height: 16px;
+    width: 16px;
+    background-size: cover;
+}
+i.hero {
+  background-image: url(./images/hero.png);
+}
+i.hero2 {
+  background-image: url(./images/hero2.png);
+}
+i.monster {
+  background-image: url(./images/monster.png);
+}
+i.monster2 {
+  background-image: url(./images/monster2.png);
+}
+i.monster3 {
+  background-image: url(./images/monster3.png);
+}
+i.monster4 {
+  background-image: url(./images/monster4.png);
+}
+i.monster5 {
+  background-image: url(./images/monster5.png);
+}
+i.monster6 {
+  background-image: url(./images/monster6.png);
 }
