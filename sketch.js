@@ -24,15 +24,31 @@ class Controller {
   }
 
   updateView() {
-    this.view.lbl1.innerHTML = this.model.round;
     this.view.scrollbox1.innerHTML = this.model.getHerosCondition();
     this.view.scrollbox2.innerHTML = this.model.getMonstersCondition();
-    this.view.scrollbox1.childNodes[this.model.heroIndex].classList.add("selected");
-    this.view.scrollbox2.childNodes[this.model.monsterIndex].classList.add("selected");
-    this.view.lbl8.innerHTML = this.model.monsters[this.model.monsterIndex].getCondition();
-    this.view.lbl9.innerHTML = this.model.heros[this.model.heroIndex].getCondition();
     this.view.lbl3.innerHTML = this.model.getHerosLifepoints();
     this.view.lbl5.innerHTML = this.model.getMonstersLifepoints();
+    
+    if (this.model.getHerosLifepoints() == 0) {
+      this.end();
+      this.view.scrollbox2.childNodes[this.model.monsterIndex].classList.add("selected");
+      this.view.lbl9.innerHTML = this.model.emptyCondition;
+    } else if (this.model.getMonstersLifepoints() == 0) {
+      this.end();
+      this.view.scrollbox1.childNodes[this.model.heroIndex].classList.add("selected");
+      this.view.lbl8.innerHTML = this.model.emptyCondition;
+    } else {
+      this.view.lbl1.innerHTML = this.model.round;
+      this.view.scrollbox1.childNodes[this.model.heroIndex].classList.add("selected");
+      this.view.scrollbox2.childNodes[this.model.monsterIndex].classList.add("selected");
+      this.view.lbl8.innerHTML = this.model.monsters[this.model.monsterIndex].getCondition();
+      this.view.lbl9.innerHTML = this.model.heros[this.model.heroIndex].getCondition();
+    }
+  }
+
+  end() {
+    this.view.btn4.disabled = true;
+    this.view.btn4.classList.add("disabled");
   }
 
   changeHero(index) {
@@ -86,7 +102,7 @@ class Player {
   }
 
   getCondition(){
-    return this.fightforce + "  <i class='force'></i> " + this.energy.toFixed(2) + "  <i class='energy'></i> " + this.lifepoints + "  <i class='heart'></i>";
+    return this.fightforce + " <i class='force'></i> " + this.energy.toFixed(2) + "  <i class='energy'></i> " + this.lifepoints + " <i class='heart'></i>";
   }
 }
 
@@ -111,7 +127,7 @@ class Model {
 
   constructor() {
     this.dice = new Dice();
-    this.round = 0;
+    this.round = 1;
     this.heros = [];
     this.heros.push(new Player(1, 5, 3, this.generateSkin(false, this.dice))); //TEMP
     this.heros.push(new Player(1, 7, 2, this.generateSkin(false, this.dice))); //TEMP
@@ -126,6 +142,8 @@ class Model {
     this.battlefield = new Battlefield();
     this.monsterIndex = 0;
     this.heroIndex = 0;
+
+    this.emptyCondition = "0 <i class='force'></i> 0 <i class='energy'></i> 0 <i class='heart'></i>";
   }
 
   generateSkin(isMonster, dice) {

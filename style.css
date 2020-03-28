@@ -52,7 +52,11 @@ canvas {
   border: none;
   color: white;
   padding: 15px 32px;
+  cursor: pointer;
   background: url(./images/dark_oak_planks.png);
+}
+#run.disabled {
+  cursor: not-allowed;
 }
 i.heart, i.energy, i.force {
   display: inline-block;
