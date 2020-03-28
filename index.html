@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <title>Hero Game</title>
+  </head>
+  <body>
+    <img id="logo" src="./images/title.png"/>
+    <div class="centered bottom">
+      <span>Round: </span>
+      <span id="round">0</span>
+    </div>
+    <div class="grid bottom">
+      <div class="left">
+        <span>Lifes of Your Heros: </span>
+        <span id="heroLifes">0</span>
+      </div>
+      <div class="left">
+        <span>Lifes of The Monsters: </span>
+        <span id="monsterLifes">0</span>
+      </div>
+      <div id="heros" class="scrollBox"></div>
+      <div id="monsters" class="scrollBox"></div>
+      <div class="left">
+        <span>Your Hero: </span>
+        <input id="selectedHero" type="text" />
+      </div>
+      <div class="left">
+        <span>Your Opponent: </span>
+        <span id="selectedMonster">0</span>
+      </div>
+    </div>
+    <button id="run" type="button">Run Round</button>
+    <script src="sketch.js" async></script>
+  </body>
+</html>

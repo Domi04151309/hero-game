@@ -1,0 +1,49 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font: 16px sans-serif;
+}
+html {
+  color: #fff;
+  background: url(./images/coal_block.png);
+}
+body {
+ max-width: 1080px;
+ margin: 0 auto;
+}
+canvas {
+  display: none;
+}
+#logo {
+  display: block;
+  max-width: 100%;
+  margin: 32px auto;
+}
+.centered {
+  text-align: center;
+}
+.left {
+  margin-left: 16px;
+}
+.bottom {
+  margin-bottom: 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 50% calc(50% - 16px);
+}
+.scrollBox {
+  min-height: 200px;
+  width: calc(100% - 48px);
+  padding: 16px;
+  margin: 16px;
+  background: url(./images/dark_oak_planks.png);
+}
+#run {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  background: url(./images/dark_oak_planks.png);
+}
