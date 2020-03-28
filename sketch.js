@@ -5,10 +5,10 @@ class View {
     this.lbl1 = document.getElementById("round");
     this.lbl3 = document.getElementById("heroLifes");
     this.lbl5 = document.getElementById("monsterLifes");
-    this.scrolbox1 = document.getElementById("heros");
-    this.scrolbox2 = document.getElementById("monsters");
+    this.scrollbox1 = document.getElementById("heros");
+    this.scrollbox2 = document.getElementById("monsters");
     this.lbl8 = document.getElementById("selectedMonster");
-    this.inp1 = document.getElementById("selectedHero");
+    this.lbl9 = document.getElementById("selectedHero");
     this.btn4 = document.getElementById("run");
   }
 }
@@ -23,21 +23,31 @@ class Controller {
     this.updateView();
   }
 
-  updateView(){
+  updateView() {
     this.view.lbl1.innerHTML = this.model.round;
-    this.view.scrolbox1.innerHTML = this.model.getHerosCondition();
-    this.view.scrolbox2.innerHTML = this.model.getMonstersCondition();
+    this.view.scrollbox1.innerHTML = this.model.getHerosCondition();
+    this.view.scrollbox2.innerHTML = this.model.getMonstersCondition();
+    this.view.scrollbox1.childNodes[this.model.heroIndex].classList.add("selected");
+    this.view.scrollbox2.childNodes[this.model.monsterIndex].classList.add("selected");
     this.view.lbl8.innerHTML = this.model.monsters[this.model.monsterIndex].getCondition();
+    this.view.lbl9.innerHTML = this.model.heros[this.model.heroIndex].getCondition();
     this.view.lbl3.innerHTML = this.model.getHerosLifepoints();
     this.view.lbl5.innerHTML = this.model.getMonstersLifepoints();
   }
 
+  changeHero(index) {
+    this.model.setHero(index);
+    var heros = this.view.scrollbox1.childNodes;
+    heros.forEach(hero => hero.classList.remove("selected"));
+    heros[index].classList.add("selected");
+    this.view.lbl9.innerHTML = this.model.heros[index].getCondition();
+  }
+
   btn1Pressed() {
-    this.model.setHero(this.view.inp1.value);
     this.model.doFight()
     this.model.regenerateMonstersAndHeros();
     this.model.round++;
-    this.model.monsterIndex = this.model.dice.getRandomInt(this.model.monsters.length)
+    this.model.newMonster()
     this.updateView();
   }
 }
@@ -109,8 +119,10 @@ class Model {
     this.heros.push(new Player(1, 7, 7, this.generateSkin(false, this.dice))); //TEMP
 
     this.monsters = [];
-    this.monsters.push(new Player(1, 8, 2, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(1, 4, 9, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(1, 5, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(1, 7, 2, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(1, 9, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(1, 7, 7, this.generateSkin(true, this.dice))); //TEMP
     this.battlefield = new Battlefield();
     this.monsterIndex = 0;
     this.heroIndex = 0;
@@ -143,22 +155,22 @@ class Model {
     }
   }
 
-  setHero(heroIndex){
+  setHero(heroIndex) {
     this.heroIndex = heroIndex;
   }
 
-  doFight(){
+  doFight() {
     this.battlefield.fight(this.monsters[this.monsterIndex], this.heros[this.heroIndex])
   }
 
-  newMonster(){
-      this.monsterIndex = this.dice.getRandomInt(this.monsters.length);
+  newMonster() {
+    this.monsterIndex = this.dice.getRandomInt(this.monsters.length);
   }
 
   getHerosCondition(){
     let ergebnis = "";
     for(let i = 0; i < this.heros.length; i++){
-      ergebnis = ergebnis + i + " <i class='" + this.heros[i].skin + "'></i> Stats: " + this.heros[i].getCondition() + "<br>";
+      ergebnis = ergebnis + "<div class='item' onClick='app.changeHero(" + i + ")'><i class='" + this.heros[i].skin + "'></i>Stats: " + this.heros[i].getCondition() + "</div>";
     }
     return ergebnis;
   }
@@ -166,7 +178,7 @@ class Model {
   getMonstersCondition(){
     let ergebnis = "";
     for(let i = 0; i < this.monsters.length; i++){
-      ergebnis = ergebnis + i + " <i class='" + this.monsters[i].skin + "'></i> Stats: " + this.monsters[i].getCondition() + "<br>";
+      ergebnis = ergebnis + "<div><i class='" + this.monsters[i].skin + "'></i>Stats: " + this.monsters[i].getCondition() + "</div>";
     }
     return ergebnis;
   }
@@ -195,8 +207,7 @@ class Model {
       this.heros[i].energy += 0.05;
     }
   }
-
 }
 
 // Start app ###################################################################
-app = new Controller(new View(), new Model());
+var app = new Controller(new View(), new Model());

@@ -40,6 +40,12 @@ canvas {
   margin: 16px;
   background: url(./images/dark_oak_planks.png);
 }
+.item:hover {
+  background: rgba(255, 255, 255, .08);
+}
+.selected, .item.selected {
+  background: rgba(255, 255, 255, .16);
+}
 #run {
   display: block;
   margin: 0 auto;
@@ -69,6 +75,7 @@ i.hero, i.hero2, i.monster, i.monster2, i.monster3, i.monster4, i.monster5, i.mo
     vertical-align: text-top;
     height: 16px;
     width: 16px;
+    margin: 0 8px;
     background-size: cover;
 }
 i.hero {
