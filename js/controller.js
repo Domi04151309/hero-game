@@ -5,14 +5,15 @@ class Controller {
     this.model = modelToUse;
     this.view.btn4.addEventListener("click", this.btn1Pressed.bind(this));
     this.view.reload.addEventListener("click", this.reloadPressed.bind(this));
-    this.updateView();
+    this.updateView(MESSAGE_SOME_MONSTERS_APPEARED);
   }
 
-  updateView() {
+  updateView(result) {
     this.view.scrollbox1.innerHTML = this.model.getHerosCondition();
     this.view.scrollbox2.innerHTML = this.model.getMonstersCondition();
     this.view.lbl3.innerHTML = this.model.getHerosLifepoints();
     this.view.lbl5.innerHTML = this.model.getMonstersLifepoints();
+    this.view.log.innerHTML = result;
 
     if (this.model.getHerosLifepoints() == 0) {
       this.end();
@@ -50,11 +51,11 @@ class Controller {
   }
 
   btn1Pressed() {
-    this.model.doFight()
+    var result = this.model.doFight()
     this.model.regenerateMonstersAndHeros();
     this.model.round++;
     this.model.newMonster()
-    this.updateView();
+    this.updateView(result);
   }
 
   reloadPressed() {

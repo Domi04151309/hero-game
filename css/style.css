@@ -57,6 +57,11 @@ button:hover {
 #logo {
   margin: 32px auto;
 }
+#log {
+  padding: 8px 24px;
+  margin: 16px;
+  background: url(../images/dark_oak_planks.png);
+}
 .centered {
   text-align: center;
 }

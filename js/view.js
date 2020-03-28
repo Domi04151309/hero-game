@@ -1,6 +1,7 @@
 class View {
 
   constructor() {
+    this.log = document.getElementById("log");
     this.lbl1 = document.getElementById("round");
     this.lbl3 = document.getElementById("heroLifes");
     this.lbl5 = document.getElementById("monsterLifes");
