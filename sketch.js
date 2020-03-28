@@ -94,10 +94,10 @@ class Battlefield {
 
   constructor() {}
 
-  fight(monster, hero) {
-    monster.energy -= 0.30
+  fight(hero, monster) {
     hero.energy -= 0.30
-    if (monster.attackValue > hero.attackValue) {
+    monster.energy -= 0.30
+    if (monster.attackValue() > hero.attackValue()) {
       hero.lifepoints--
       return monster
     } else {
@@ -160,7 +160,14 @@ class Model {
   }
 
   doFight() {
-    this.battlefield.fight(this.monsters[this.monsterIndex], this.heros[this.heroIndex])
+    var hero = this.heros[this.heroIndex]
+    var monster = this.monsters[this.monsterIndex]
+    this.battlefield.fight(hero, monster)
+    if (hero.lifepoints <= 0) {
+      this.heros.splice(this.heroIndex, 1);
+    } else if (monster.lifepoints <= 0) {
+      this.monsters.splice(this.monsterIndex, 1);
+    }
   }
 
   newMonster() {
