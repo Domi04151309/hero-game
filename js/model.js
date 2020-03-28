@@ -17,20 +17,49 @@ class Dice {
 
 class Player {
 
-  constructor(energy, fightforce, lifepoints, skin) {
+  constructor(weapon, energy, lifepoints, skin) {
     this.skin = skin;
     this.lifepoints = lifepoints;
-    this.fightforce = fightforce;
+    this.weapon = weapon;
     this.energy = energy;
     this.dice = new Dice();
   }
 
   attackValue() {
-    return this.fightforce * this.energy * (Math.random() * (1.5 - 0.5) + 0.5);
+    return this.weapon.getAttackValue() * this.energy * (Math.random() * (1.5 - 0.5) + 0.5);
   }
 
   getCondition(){
-    return this.fightforce + " <i class='force'></i> " + this.energy.toFixed(2) + "  <i class='energy'></i> " + this.lifepoints + " <i class='heart'></i>";
+    return this.weapon.getAttackValue() + " <i class='" + this.weapon.getTexture() + "'></i> " + this.energy.toFixed(2) + "  <i class='energy'></i> " + this.lifepoints + " <i class='heart'></i>";
+  }
+}
+
+
+class Weapon {
+
+  constructor(type) {
+    this.type = type
+  }
+
+  getAttackValue() {
+    return this.type;
+  }
+
+  getTexture() {
+    switch(this.type) {
+      case WEAPON_NONE:
+        return "none";
+      case WEAPON_HOE:
+        return "hoe";
+      case WEAPON_PICKAXE:
+        return "pickaxe";
+      case WEAPON_SHOVEL:
+        return "shovel";
+      case WEAPON_SWORD:
+        return "sword";
+      case WEAPON_AXE:
+        return "axe";
+    }
   }
 }
 
@@ -67,16 +96,16 @@ class Model {
     this.dice = new Dice();
     this.round = 1;
     this.heros = [];
-    this.heros.push(new Player(1, 5, 3, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Player(1, 7, 2, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Player(1, 9, 3, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Player(1, 7, 7, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Player(new Weapon(WEAPON_SWORD), 1, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Player(new Weapon(WEAPON_PICKAXE), 1, 2, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Player(new Weapon(WEAPON_AXE), 1, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Player(new Weapon(WEAPON_SHOVEL), 1, 7, this.generateSkin(false, this.dice))); //TEMP
 
     this.monsters = [];
-    this.monsters.push(new Player(1, 5, 3, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(0.2, 7, 2, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(0.2, 9, 3, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(0.2, 7, 7, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(new Weapon(WEAPON_HOE), 1, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(new Weapon(WEAPON_NONE), 1, 2, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(new Weapon(WEAPON_SHOVEL), 1, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(new Weapon(WEAPON_PICKAXE), 1, 7, this.generateSkin(true, this.dice))); //TEMP
     this.battlefield = new Battlefield();
     this.monsterIndex = 0;
     this.heroIndex = 0;

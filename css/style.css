@@ -91,7 +91,7 @@ button:hover {
 #run.disabled {
   cursor: not-allowed;
 }
-i.heart, i.energy, i.force {
+i.heart, i.energy, i.none, i.hoe, i.pickaxe, i.shovel, i.sword, i.axe  {
   display: inline-block;
   vertical-align: middle;
   height: 24px;
@@ -104,8 +104,23 @@ i.heart {
 i.energy {
   background-image: url(../images/energy.png);
 }
-i.force {
+i.none {
+  background-image: url(../images/stick.png);
+}
+i.hoe {
+  background-image: url(../images/iron_hoe.png);
+}
+i.pickaxe {
+  background-image: url(../images/iron_pickaxe.png);
+}
+i.shovel {
+  background-image: url(../images/iron_shovel.png);
+}
+i.sword {
   background-image: url(../images/iron_sword.png);
+}
+i.axe {
+  background-image: url(../images/iron_axe.png);
 }
 i.hero, i.hero2, i.monster, i.monster2, i.monster3, i.monster4, i.monster5, i.monster6 {
     display: inline-block;

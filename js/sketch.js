@@ -6,4 +6,11 @@ const MESSAGE_MONSTER_WINS = "The monsters have won this round!"
 const MESSAGE_MONSTER_WINS_FATAL = "The monsters have won this round and killed a hero!"
 const MESSAGE_MONSTER_WINS_LOW_ENERGY = "The monsters have won this round because your hero was too exhausted to attack!"
 
+const WEAPON_NONE = 1
+const WEAPON_HOE = 2
+const WEAPON_PICKAXE = 3
+const WEAPON_SHOVEL = 4
+const WEAPON_SWORD = 5
+const WEAPON_AXE = 6
+
 var app = new Controller(new View(), new Model());
