@@ -6,32 +6,46 @@
     <title>Hero Game</title>
   </head>
   <body>
-    <img id="logo" src="./images/title.png"/>
-    <div class="centered bottom">
-      <span>Round: </span>
-      <span id="round">0</span>
+
+    <section id="game">
+      <img id="logo" src="./images/title.png"/>
+      <div class="centered bottom">
+        <span>Round: </span>
+        <span id="round">0</span>
+      </div>
+      <div class="grid bottom">
+        <div class="left">
+          <span>Lifes of Your Heros: </span>
+          <span id="heroLifes">0</span>
+        </div>
+        <div class="left">
+          <span>Lifes of The Monsters: </span>
+          <span id="monsterLifes">0</span>
+        </div>
+        <div id="heros" class="scrollBox"></div>
+        <div id="monsters" class="scrollBox"></div>
+        <div class="left">
+          <span>Your Hero: </span>
+          <span id="selectedHero">0</span>
+        </div>
+        <div class="left">
+          <span>Your Opponent: </span>
+          <span id="selectedMonster">0</span>
+        </div>
+      </div>
+      <button id="run" type="button">Fight!</button>
+    </section>
+
+    <section id="winner" class="hidden">
+      <div>
+        <img id="winnerIcon" src="./images/hero_of_the_village.png"/>
+        <h1>
+          The <span id="winningTeam">undefined</span> have won the game!
+        </h1>
+        <button id="reload" type="button">Play again</button>
     </div>
-    <div class="grid bottom">
-      <div class="left">
-        <span>Lifes of Your Heros: </span>
-        <span id="heroLifes">0</span>
-      </div>
-      <div class="left">
-        <span>Lifes of The Monsters: </span>
-        <span id="monsterLifes">0</span>
-      </div>
-      <div id="heros" class="scrollBox"></div>
-      <div id="monsters" class="scrollBox"></div>
-      <div class="left">
-        <span>Your Hero: </span>
-        <span id="selectedHero">0</span>
-      </div>
-      <div class="left">
-        <span>Your Opponent: </span>
-        <span id="selectedMonster">0</span>
-      </div>
-    </div>
-    <button id="run" type="button">Fight!</button>
+    </section>
+
     <script src="sketch.js" async></script>
   </body>
 </html>
