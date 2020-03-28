@@ -39,6 +39,16 @@ class Battlefield {
   constructor() {}
 
   fight(hero, monster) {
+    if (hero.energy < 0.30) {
+      monster.energy -= 0.30
+      hero.lifepoints--
+      return monster;
+    }
+    if (monster.energy < 0.30) {
+      hero.energy -= 0.30
+      monster.lifepoints--
+      return hero;
+    }
     hero.energy -= 0.30
     monster.energy -= 0.30
     if (monster.attackValue() > hero.attackValue()) {
@@ -64,9 +74,9 @@ class Model {
 
     this.monsters = [];
     this.monsters.push(new Player(1, 5, 3, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(1, 7, 2, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(1, 9, 3, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(1, 7, 7, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(0.2, 7, 2, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(0.2, 9, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(0.2, 7, 7, this.generateSkin(true, this.dice))); //TEMP
     this.battlefield = new Battlefield();
     this.monsterIndex = 0;
     this.heroIndex = 0;
