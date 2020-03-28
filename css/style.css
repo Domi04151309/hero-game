@@ -7,7 +7,7 @@ html, body {
 }
 html {
   color: #fff;
-  background: #000 url(./images/coal_block.png);
+  background: #000 url(../images/coal_block.png);
 }
 #game {
  max-width: 1080px;
@@ -48,7 +48,10 @@ button {
   color: white;
   padding: 15px 32px;
   cursor: pointer;
-  background: url(./images/dark_oak_planks.png);
+  background: url(../images/dark_oak_planks.png);
+}
+button:hover {
+  background: url(../images/dark_oak_planks_08.png);
 }
 
 #logo {
@@ -72,7 +75,7 @@ button {
   width: calc(100% - 48px);
   padding: 16px;
   margin: 16px;
-  background: url(./images/dark_oak_planks.png);
+  background: url(../images/dark_oak_planks.png);
 }
 .item:hover {
   background: rgba(255, 255, 255, .08);
@@ -91,13 +94,13 @@ i.heart, i.energy, i.force {
   background-size: cover;
 }
 i.heart {
-  background-image: url(./images/heart.png);
+  background-image: url(../images/heart.png);
 }
 i.energy {
-  background-image: url(./images/energy.png);
+  background-image: url(../images/energy.png);
 }
 i.force {
-  background-image: url(./images/iron_sword.png);
+  background-image: url(../images/iron_sword.png);
 }
 i.hero, i.hero2, i.monster, i.monster2, i.monster3, i.monster4, i.monster5, i.monster6 {
     display: inline-block;
@@ -108,28 +111,28 @@ i.hero, i.hero2, i.monster, i.monster2, i.monster3, i.monster4, i.monster5, i.mo
     background-size: cover;
 }
 i.hero {
-  background-image: url(./images/hero.png);
+  background-image: url(../images/hero.png);
 }
 i.hero2 {
-  background-image: url(./images/hero2.png);
+  background-image: url(../images/hero2.png);
 }
 i.monster {
-  background-image: url(./images/monster.png);
+  background-image: url(../images/monster.png);
 }
 i.monster2 {
-  background-image: url(./images/monster2.png);
+  background-image: url(../images/monster2.png);
 }
 i.monster3 {
-  background-image: url(./images/monster3.png);
+  background-image: url(../images/monster3.png);
 }
 i.monster4 {
-  background-image: url(./images/monster4.png);
+  background-image: url(../images/monster4.png);
 }
 i.monster5 {
-  background-image: url(./images/monster5.png);
+  background-image: url(../images/monster5.png);
 }
 i.monster6 {
-  background-image: url(./images/monster6.png);
+  background-image: url(../images/monster6.png);
 }
 
 #winnerIcon {
