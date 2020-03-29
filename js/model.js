@@ -110,7 +110,7 @@ class Model {
     this.monsterIndex = 0;
     this.heroIndex = 0;
 
-    this.emptyCondition = "0 <i class='force'></i> 0 <i class='energy'></i> 0 <i class='heart'></i>";
+    this.emptyCondition = "0 <i class='none'></i> 0 <i class='energy'></i> 0 <i class='heart'></i>";
   }
 
   generateSkin(isMonster, dice) {
