@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <meta charset="utf-8" />
     <title>Hero Game</title>
+    <meta name="description" content="A small game with heros and monsters." />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 
     <section id="game">
-      <img id="logo" src="./images/title.png"/>
+      <img id="logo" src="./images/title.png" alt="Hero Game"/>
       <div class="centered">
         <span>Round: </span>
         <span id="round">0</span>
       </div>
       <div id="log">0</div>
-      <div class="grid bottom">
-        <div class="left">
+      <div class="grid">
+        <div class="defaultMargin">
           <span>Lives of Your Heros: </span>
           <span id="heroLifes">0</span>
         </div>
-        <div class="left">
+        <div class="horizontal">
           <span>Lives of The Monsters: </span>
           <span id="monsterLifes">0</span>
         </div>
         <div id="heros" class="scrollBox"></div>
         <div id="monsters" class="scrollBox"></div>
-        <div class="left">
+        <div class="defaultMargin">
           <span>Your Hero: </span>
           <span id="selectedHero">0</span>
         </div>
-        <div class="left">
+        <div class="horizontal">
           <span>Your Opponent: </span>
           <span id="selectedMonster">0</span>
         </div>
@@ -39,7 +41,7 @@
 
     <section id="winner" class="hidden">
       <div>
-        <img id="winnerIcon" src="./images/hero_of_the_village.png"/>
+        <img id="winnerIcon" src="./images/hero_of_the_village.png" alt="Game over"/>
         <h1>
           The <span id="winningTeam">0</span> have won the game!
         </h1>

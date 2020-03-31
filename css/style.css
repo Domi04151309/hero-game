@@ -18,7 +18,7 @@ html {
   align-items: center;
   justify-content: center;
   z-index: 50;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -43,7 +43,7 @@ h1 {
 }
 button {
   display: block;
-  margin: 0 auto;
+  margin: 16px auto;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -59,27 +59,27 @@ button:hover {
 }
 #log {
   padding: 8px 24px;
-  margin: 16px;
+  margin: 16px 16px 0 16px;
   background: url(../images/dark_oak_planks.png);
 }
 .centered {
   text-align: center;
 }
-.left {
-  margin-left: 16px;
+.defaultMargin {
+  margin: 16px 16px 0 16px;
 }
-.bottom {
-  margin-bottom: 16px;
+.horizontal {
+  margin: 0 16px;
 }
 .grid {
   display: grid;
-  grid-template-columns: 50% calc(50% - 16px);
+  grid-template-columns: 100%;
 }
 .scrollBox {
   min-height: 200px;
-  width: calc(100% - 48px);
+  width: calc(100% - 64px);
   padding: 16px;
-  margin: 16px;
+  margin: 16px 16px 0 16px;
   background: url(../images/dark_oak_planks.png);
 }
 .item:hover {
@@ -157,4 +157,14 @@ i.monster6 {
 
 #winnerIcon {
   width: 192px;
+}
+
+
+@media screen and (min-width: 720px){
+  .grid {
+    grid-template-columns: 50% 50%;
+  }
+  .horizontal {
+    margin: 16px 16px 0 16px;
+  }
 }
