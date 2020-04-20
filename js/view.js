@@ -2,14 +2,14 @@ class View {
 
   constructor() {
     this.log = document.getElementById("log");
-    this.lbl1 = document.getElementById("round");
-    this.lbl3 = document.getElementById("heroLifes");
-    this.lbl5 = document.getElementById("monsterLifes");
-    this.scrollbox1 = document.getElementById("heros");
-    this.scrollbox2 = document.getElementById("monsters");
-    this.lbl8 = document.getElementById("selectedMonster");
-    this.lbl9 = document.getElementById("selectedHero");
-    this.btn4 = document.getElementById("run");
+    this.round = document.getElementById("round");
+    this.heroLives = document.getElementById("heroLives");
+    this.monsterLives = document.getElementById("monsterLives");
+    this.heroScrollbox = document.getElementById("heros");
+    this.monsterScrollbox = document.getElementById("monsters");
+    this.selectedMonster = document.getElementById("selectedMonster");
+    this.selectedHero = document.getElementById("selectedHero");
+    this.run = document.getElementById("run");
 
     this.winner = document.getElementById("winner");
     this.winnerIcon = document.getElementById("winnerIcon");
