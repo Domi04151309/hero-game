@@ -17,10 +17,10 @@ class Dice {
 
 class Player {
 
-  constructor(weapon, energy, lifepoints, skin) {
+  constructor(energy, lifepoints, skin) {
     this.skin = skin;
     this.lifepoints = lifepoints;
-    this.weapon = weapon;
+    this.weapon = new Weapon(WEAPON_NONE);
     this.energy = energy;
     this.dice = new Dice();
   }
@@ -31,6 +31,14 @@ class Player {
 
   getCondition(){
     return this.weapon.getAttackValue() + " <i class='" + this.weapon.getTexture() + "'></i> " + this.energy.toFixed(2) + "  <i class='energy'></i> " + this.lifepoints + " <i class='heart'></i>";
+  }
+}
+
+class Warrior extends Player {
+
+  constructor(weapon, energy, lifepoints, skin) {
+    super(energy, lifepoints, skin);
+    this.weapon = weapon;
   }
 }
 
@@ -96,16 +104,16 @@ class Model {
     this.dice = new Dice();
     this.round = 1;
     this.heros = [];
-    this.heros.push(new Player(new Weapon(WEAPON_SWORD), 1, 3, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Player(new Weapon(WEAPON_PICKAXE), 1, 2, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Player(new Weapon(WEAPON_AXE), 1, 3, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Player(new Weapon(WEAPON_SHOVEL), 1, 7, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(WEAPON_SWORD), 1, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(WEAPON_PICKAXE), 1, 2, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(WEAPON_AXE), 1, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(WEAPON_SHOVEL), 1, 7, this.generateSkin(false, this.dice))); //TEMP
 
     this.monsters = [];
-    this.monsters.push(new Player(new Weapon(WEAPON_HOE), 1, 3, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(new Weapon(WEAPON_NONE), 1, 2, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(new Weapon(WEAPON_SHOVEL), 1, 3, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Player(new Weapon(WEAPON_PICKAXE), 1, 7, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Warrior(new Weapon(WEAPON_HOE), 1, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Player(1, 2, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Warrior(new Weapon(WEAPON_SHOVEL), 1, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Warrior(new Weapon(WEAPON_PICKAXE), 1, 7, this.generateSkin(true, this.dice))); //TEMP
     this.battlefield = new Battlefield();
     this.monsterIndex = 0;
     this.heroIndex = 0;
