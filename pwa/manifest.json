@@ -1,0 +1,43 @@
+{
+  "short_name": "Hero Game",
+  "name": "Hero Game",
+  "description": "A small game with heros and monsters.",
+  "icons": [
+    {
+      "src": "./mipmap-mdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./mipmap-hdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "./mipmap-xhdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./mipmap-xxhdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "./mipmap-xxxhdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/hero-game/",
+  "background_color": "#000",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/hero-game/",
+  "theme_color": "#000"
+}
