@@ -1,4 +1,6 @@
-class Battlefield {
+import Constants from './Constants.js';
+
+export default class Battlefield {
 
   constructor() {}
 
@@ -6,21 +8,21 @@ class Battlefield {
     if (hero.energy < 0.30) {
       monster.energy -= 0.30
       hero.lifepoints--
-      return MESSAGE_MONSTER_WINS_LOW_ENERGY;
+      return Constants.MESSAGE_MONSTER_WINS_LOW_ENERGY;
     }
     if (monster.energy < 0.30) {
       hero.energy -= 0.30
       monster.lifepoints--
-      return MESSAGE_HERO_WINS_LOW_ENERGY;
+      return Constants.MESSAGE_HERO_WINS_LOW_ENERGY;
     }
     hero.energy -= 0.30
     monster.energy -= 0.30
     if (monster.attackValue() > hero.attackValue()) {
       hero.lifepoints--
-      return MESSAGE_MONSTER_WINS
+      return Constants.MESSAGE_MONSTER_WINS
     } else {
       monster.lifepoints--
-      return MESSAGE_HERO_WINS
+      return Constants.MESSAGE_HERO_WINS
     }
   }
 }

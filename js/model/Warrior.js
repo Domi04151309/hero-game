@@ -1,6 +1,6 @@
+import Player from './Player.js';
 
-
-class Warrior extends Player {
+export default class Warrior extends Player {
 
   constructor(weapon, energy, lifepoints, skin) {
     super(energy, lifepoints, skin);

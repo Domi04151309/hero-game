@@ -1,4 +1,4 @@
-class Dice {
+export default class Dice {
 
   constructor() {}
 

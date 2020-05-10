@@ -1,9 +1,13 @@
-class Player {
+import Weapon from './Weapon.js';
+import Constants from './Constants.js';
+import Dice from './Dice.js';
+
+export default class Player {
 
   constructor(energy, lifepoints, skin) {
     this.skin = skin;
     this.lifepoints = lifepoints;
-    this.weapon = new Weapon(WEAPON_NONE);
+    this.weapon = new Weapon(Constants.WEAPON_NONE);
     this.energy = energy;
     this.dice = new Dice();
   }

@@ -1,11 +1,13 @@
-class Controller {
+import Constants from '../model/Constants.js';
+
+export default class Controller {
 
   constructor(viewToUse, modelToUse) {
     this.view = viewToUse;
     this.model = modelToUse;
     this.view.run.addEventListener("click", this.runPressed.bind(this));
     this.view.reload.addEventListener("click", this.reloadPressed.bind(this));
-    this.updateView(MESSAGE_SOME_MONSTERS_APPEARED);
+    this.updateView(Constants.MESSAGE_SOME_MONSTERS_APPEARED);
   }
 
   updateView(result) {

@@ -1,19 +1,26 @@
-class Model {
+import Battlefield from './Battlefield.js';
+import Constants from './Constants.js';
+import Dice from './Dice.js';
+import Player from './Player.js';
+import Warrior from './Warrior.js';
+import Weapon from './Weapon.js';
+
+export default class Model {
 
   constructor() {
     this.dice = new Dice();
     this.round = 1;
     this.heros = [];
-    this.heros.push(new Warrior(new Weapon(WEAPON_SWORD), 1, 3, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Warrior(new Weapon(WEAPON_PICKAXE), 1, 2, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Warrior(new Weapon(WEAPON_AXE), 1, 3, this.generateSkin(false, this.dice))); //TEMP
-    this.heros.push(new Warrior(new Weapon(WEAPON_SHOVEL), 1, 7, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(Constants.WEAPON_SWORD), 1, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(Constants.WEAPON_PICKAXE), 1, 2, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(Constants.WEAPON_AXE), 1, 3, this.generateSkin(false, this.dice))); //TEMP
+    this.heros.push(new Warrior(new Weapon(Constants.WEAPON_SHOVEL), 1, 7, this.generateSkin(false, this.dice))); //TEMP
 
     this.monsters = [];
-    this.monsters.push(new Warrior(new Weapon(WEAPON_HOE), 1, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Warrior(new Weapon(Constants.WEAPON_HOE), 1, 3, this.generateSkin(true, this.dice))); //TEMP
     this.monsters.push(new Player(1, 2, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Warrior(new Weapon(WEAPON_SHOVEL), 1, 3, this.generateSkin(true, this.dice))); //TEMP
-    this.monsters.push(new Warrior(new Weapon(WEAPON_PICKAXE), 1, 7, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Warrior(new Weapon(Constants.WEAPON_SHOVEL), 1, 3, this.generateSkin(true, this.dice))); //TEMP
+    this.monsters.push(new Warrior(new Weapon(Constants.WEAPON_PICKAXE), 1, 7, this.generateSkin(true, this.dice))); //TEMP
     this.battlefield = new Battlefield();
     this.monsterIndex = 0;
     this.heroIndex = 0;
@@ -58,10 +65,10 @@ class Model {
     var result = this.battlefield.fight(hero, monster)
     if (hero.lifepoints <= 0) {
       this.heros.splice(this.heroIndex, 1);
-      return MESSAGE_MONSTER_WINS_FATAL
+      return Constants.MESSAGE_MONSTER_WINS_FATAL
     } else if (monster.lifepoints <= 0) {
       this.monsters.splice(this.monsterIndex, 1);
-      return MESSAGE_HERO_WINS_FATAL
+      return Constants.MESSAGE_HERO_WINS_FATAL
     }
     return result
   }

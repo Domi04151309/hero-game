@@ -1,4 +1,6 @@
-class Weapon {
+import Constants from '../model/Constants.js';
+
+export default class Weapon {
 
   constructor(type) {
     this.type = type
@@ -10,17 +12,17 @@ class Weapon {
 
   getTexture() {
     switch(this.type) {
-      case WEAPON_NONE:
+      case Constants.WEAPON_NONE:
         return "none";
-      case WEAPON_HOE:
+      case Constants.WEAPON_HOE:
         return "hoe";
-      case WEAPON_PICKAXE:
+      case Constants.WEAPON_PICKAXE:
         return "pickaxe";
-      case WEAPON_SHOVEL:
+      case Constants.WEAPON_SHOVEL:
         return "shovel";
-      case WEAPON_SWORD:
+      case Constants.WEAPON_SWORD:
         return "sword";
-      case WEAPON_AXE:
+      case Constants.WEAPON_AXE:
         return "axe";
     }
   }
