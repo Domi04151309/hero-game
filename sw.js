@@ -3,12 +3,7 @@
 ---
 var CACHE_NAME = 'hero-game-cache-{{ site.time | date: "%Y-%m-%d-%H:%M" }}';
 var urlsToCache = [
-  './',
-  './css/style.css',
-  './js/controller.js',
-  './js/model.js',
-  './js/sketch.js',
-  './js/view.js'
+  './'
 ];
 
 self.addEventListener('install', function(event) {
