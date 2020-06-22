@@ -84,7 +84,6 @@ button:hover {
 }
 .item:hover {
   background: rgba(255, 255, 255, .08);
-  cursor: pointer;
 }
 .selected, .item.selected {
   background: rgba(255, 255, 255, .16);
@@ -167,5 +166,17 @@ i.monster6 {
   }
   .horizontal {
     margin: 16px 16px 0 16px;
+  }
+}
+@media screen and (min-width: 720px) and (min-height: 720px) {
+  html {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  body {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
