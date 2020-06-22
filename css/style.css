@@ -55,7 +55,7 @@ button:hover {
 }
 
 #logo {
-  margin: 32px auto;
+  margin: 0 auto 32px;
 }
 #log {
   padding: 8px 24px;
