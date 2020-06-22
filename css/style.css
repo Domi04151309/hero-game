@@ -84,6 +84,7 @@ button:hover {
 }
 .item:hover {
   background: rgba(255, 255, 255, .08);
+  cursor: pointer;
 }
 .selected, .item.selected {
   background: rgba(255, 255, 255, .16);
