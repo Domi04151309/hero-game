@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   color: #fff;
+  height: 100%;
   font: 16px sans-serif;
   line-height: 2;
 }
@@ -178,7 +179,7 @@ i.monster6 {
     height: 100%;
     position: absolute;
   }
-  body {
+  #game {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
